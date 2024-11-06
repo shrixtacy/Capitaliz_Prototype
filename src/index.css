@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-grid-indigo-100 {
+    background-image: linear-gradient(to right, #E0E7FF 1px, transparent 1px),
+      linear-gradient(to bottom, #E0E7FF 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+.hover-rotate {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-rotate:hover {
+  transform: perspective(1000px) rotateY(10deg) rotateX(5deg);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Cursor styles */
+.hover-trigger {
+  cursor: none;
+}
+
+/* Only hide cursor on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a, button, [role="button"], .hover-trigger {
+    cursor: none;
+  }
+}
+
+/* Show default cursor for touch devices */
+@media (hover: none) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .custom-cursor {
+    display: none !important;
+  }
+}
